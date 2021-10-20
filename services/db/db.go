@@ -1,4 +1,4 @@
-package services
+package db
 
 import (
 	"fmt"
@@ -18,11 +18,11 @@ type DBConfig struct {
 
 func LoadDB(config DBConfig) *gorm.DB {
 	var err error
-	dsn := fmt.Sprintf(
+	conStr := fmt.Sprintf(
 		"host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Jakarta",
 		config.DBHost, config.DBUser, config.DbPass, config.DBName, config.DBPort,
 	)
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open(conStr), &gorm.Config{})
 	if err != nil {
 		log.Fatal(err.Error())
 	}

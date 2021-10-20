@@ -11,5 +11,6 @@ type Player struct {
 	CreatedAt 	time.Time
 	UpdatedAt 	time.Time
 	DeletedAt 	gorm.DeletedAt 	`gorm:"index"`
-	Rooms 		[]Room 			`gorm:"many2many:match;"`
+	Matches		[]Match			`gorm:"foreignKey:PlayerUsername"`
+	Room		Room			`gorm:"foreignKey:OwnerUsername"`
 }

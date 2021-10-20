@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/arifluthfi16/game-matchmaking/services"
+	"github.com/arifluthfi16/game-matchmaking/services/db"
 	"gorm.io/gorm"
 )
 
@@ -10,13 +10,13 @@ type Env struct {
 }
 
 func main(){
-	DBConfig := services.DBConfig{
+	DBConfig := db.DBConfig{
 		DBHost: "localhost",
 		DBUser: "postgres",
 		DBName: "game_matchmaking",
 		DBPort: "5432",
 		DbPass: "universalPassword2020",
 	}
-	env := Env{db: services.LoadDB(DBConfig)}
-	services.DBMigrate(env.db)
+	env := Env{db: db.LoadDB(DBConfig)}
+	db.DBMigrate(env.db)
 }

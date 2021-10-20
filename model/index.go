@@ -8,5 +8,6 @@ func RegisterModels() []Model {
 	return []Model{
 		{Model: Room{}},
 		{Model: Player{}},
+		{Model: Match{}},
 	}
 }
