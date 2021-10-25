@@ -18,3 +18,5 @@ func (s MatchService) FindUserInRoom (username string, roomID uint) (model.Match
 	})
 	return match, result.Error
 }
+
+

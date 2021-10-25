@@ -7,5 +7,5 @@ import (
 type Match struct {
 	gorm.Model
 	PlayerUsername	string
-	RoomID			string
+	RoomID			uint
 }
